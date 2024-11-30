@@ -3,14 +3,14 @@ import { IStagedata } from "../interface";
 const applications: IStagedata[] = [
   {
     companyName: "Comapny One",
-    applyDate: new Date("11/01/2024"),
-    endDate: new Date("14/01/2024"),
+    applyDate: new Date("2024-11-01"),
+    endDate: new Date("2024-10-05"),
     stage: null,
     comment: null,
   },
   {
     companyName: "Comapny Two",
-    applyDate: new Date("15/01/2024"),
+    applyDate: new Date("2024-02-06"),
     endDate: null,
     stage: null,
     comment: null,

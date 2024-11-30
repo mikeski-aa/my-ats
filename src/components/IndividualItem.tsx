@@ -1,10 +1,11 @@
 import { IStagedata } from "../interface";
+import "../styles/individualItem.css";
 
 function IndividualItem({ application }: { application: IStagedata }) {
   const convertDate = (input: Date | null): string => {
     if (input != null) {
-      const day = input.getDate();
-      const month = input.getMonth();
+      const day = String(input.getDate()).padStart(2, "0");
+      const month = String(input.getMonth() + 1).padStart(2, "0");
       const year = input.getFullYear();
 
       return `${day}/${month}/${year}`;
