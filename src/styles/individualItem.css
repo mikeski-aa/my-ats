@@ -1,9 +1,21 @@
-.individualItem {
+.individualItem,
+.itemHeaders {
   display: flex;
   gap: 1rem;
+  width: 980px;
 }
 
 .itemInfo {
   width: 150px;
   overflow-x: hidden;
+}
+
+.itemHeaders {
+  margin-bottom: 5px;
+  border-bottom: 2px solid black;
+  border-top: 2px solid black;
+}
+
+select {
+  width: 150px;
 }

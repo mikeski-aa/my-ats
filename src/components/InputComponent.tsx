@@ -1,6 +1,7 @@
 import { Dispatch, SetStateAction, SyntheticEvent, useState } from "react";
 import "../styles/inputComponent.css";
 import { IStagedata } from "../interface";
+import { postNewApp } from "../services/appCalls";
 
 function InputComponent({
   apps,
@@ -35,10 +36,10 @@ function InputComponent({
     return newApp;
   };
 
-  const handleAddClick = () => {
+  const handleAddClick = async () => {
     const shallowCopy = [...apps];
     shallowCopy.push(createNewAppObject());
-
+    await postNewApp(nameInput, locationInput);
     setApps(shallowCopy);
     setNameInput("");
     setLocationInput("");

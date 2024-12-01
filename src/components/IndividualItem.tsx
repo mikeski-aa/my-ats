@@ -6,9 +6,12 @@ function IndividualItem({ application }: { application: IStagedata }) {
   const convertDate = (input: Date | null): string => {
     // checking to make sure input isn't null
     if (input != null) {
-      const day = String(input.getDate()).padStart(2, "0");
-      const month = String(input.getMonth() + 1).padStart(2, "0");
-      const year = input.getFullYear();
+      console.log(input);
+
+      const dateFormat = new Date(input);
+      const day = String(dateFormat.getDate()).padStart(2, "0");
+      const month = String(dateFormat.getMonth() + 1).padStart(2, "0");
+      const year = dateFormat.getFullYear();
 
       return `${day}/${month}/${year}`;
     } else {
