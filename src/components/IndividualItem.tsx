@@ -1,4 +1,4 @@
-import { Dispatch, SetStateAction } from "react";
+import { Dispatch, SetStateAction, SyntheticEvent } from "react";
 import { IStagedata } from "../interface";
 import { deleteItem, getAllAppData } from "../services/appCalls";
 import "../styles/individualItem.css";
@@ -37,6 +37,11 @@ function IndividualItem({
     }
   };
 
+  const handleSelectChange = async (e: SyntheticEvent) => {
+    const target = e.target as HTMLInputElement;
+    console.log(target.value);
+  };
+
   return (
     <div className="individualItem">
       <div className="itemInfo">{application.companyName}</div>
@@ -45,11 +50,14 @@ function IndividualItem({
       <div className="itemInfo">Comments go here</div>
       <div className="itemInfo">{application.location}</div>
       <div className="itemInfo">
-        <select>
-          <option>Applied</option>
-          <option>Interview</option>
-          <option>Offer</option>
-          <option>Rejected</option>
+        <select
+          value={application.stage}
+          onChange={(e) => handleSelectChange(e)}
+        >
+          <option value={"Applied"}>Applied</option>
+          <option value={"Interview"}>Interview</option>
+          <option value={"Offer"}>Offer</option>
+          <option value={"Rejected"}>Rejected</option>
         </select>
       </div>
       <button className="itemInfo" onClick={handleDeleteClick}>
