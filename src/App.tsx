@@ -8,6 +8,7 @@ import { getAllAppData } from "./services/appCalls";
 
 function App() {
   const [apps, setApps] = useState<IStagedata[]>(applications);
+  const [rerun, setRerun] = useState<number>(0);
 
   useEffect(() => {
     const getData = async () => {
@@ -17,11 +18,11 @@ function App() {
     };
 
     getData();
-  }, []);
+  }, [rerun]);
 
   return (
     <div className="mainContent">
-      <InputComponent apps={apps} setApps={setApps} />
+      <InputComponent rerun={rerun} setRerun={setRerun} />
       <div className="itemHeaders">
         <div className="itemHeaderInfo">Company Name</div>
         <div className="itemHeaderInfo">Applied date</div>
@@ -32,7 +33,12 @@ function App() {
         <div className="itemHeaderInfo">Remove</div>
       </div>
       {apps.map((item, index) => (
-        <IndividualItem application={item} key={index} />
+        <IndividualItem
+          application={item}
+          key={index}
+          rerun={rerun}
+          setRerun={setRerun}
+        />
       ))}
     </div>
   );

@@ -4,11 +4,11 @@ import { IStagedata } from "../interface";
 import { postNewApp } from "../services/appCalls";
 
 function InputComponent({
-  apps,
-  setApps,
+  rerun,
+  setRerun,
 }: {
-  apps: IStagedata[];
-  setApps: Dispatch<SetStateAction<IStagedata[]>>;
+  rerun: number;
+  setRerun: Dispatch<SetStateAction<number>>;
 }) {
   const [nameInput, setNameInput] = useState<string>("");
   const [locationInput, setLocationInput] = useState<string>("");
@@ -23,24 +23,9 @@ function InputComponent({
     setLocationInput(target.value);
   };
 
-  const createNewAppObject = () => {
-    const newApp: IStagedata = {
-      companyName: nameInput,
-      applyDate: new Date(),
-      endDate: null,
-      stage: "Applied",
-      comment: null,
-      location: locationInput,
-    };
-
-    return newApp;
-  };
-
   const handleAddClick = async () => {
-    const shallowCopy = [...apps];
-    shallowCopy.push(createNewAppObject());
     await postNewApp(nameInput, locationInput);
-    setApps(shallowCopy);
+    setRerun(rerun + 1);
     setNameInput("");
     setLocationInput("");
   };

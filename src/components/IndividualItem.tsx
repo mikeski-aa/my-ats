@@ -1,7 +1,17 @@
+import { Dispatch, SetStateAction } from "react";
 import { IStagedata } from "../interface";
+import { deleteItem, getAllAppData } from "../services/appCalls";
 import "../styles/individualItem.css";
 
-function IndividualItem({ application }: { application: IStagedata }) {
+function IndividualItem({
+  application,
+  rerun,
+  setRerun,
+}: {
+  application: IStagedata;
+  rerun: number;
+  setRerun: Dispatch<SetStateAction<number>>;
+}) {
   // converting dates to dd/mm/yy
   const convertDate = (input: Date | null): string => {
     // checking to make sure input isn't null
@@ -16,6 +26,14 @@ function IndividualItem({ application }: { application: IStagedata }) {
       return `${day}/${month}/${year}`;
     } else {
       return `Awaiting response`;
+    }
+  };
+
+  const handleDeleteClick = async () => {
+    if (application.id) {
+      await deleteItem(application.id);
+
+      setRerun(rerun + 1);
     }
   };
 
@@ -34,7 +52,9 @@ function IndividualItem({ application }: { application: IStagedata }) {
           <option>Rejected</option>
         </select>
       </div>
-      <button className="itemInfo">Remove</button>
+      <button className="itemInfo" onClick={handleDeleteClick}>
+        Remove
+      </button>
     </div>
   );
 }
