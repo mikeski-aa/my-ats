@@ -48,4 +48,21 @@ async function postNewApp(companyName: string, location: string) {
   }
 }
 
-export { getAllAppData, postNewApp };
+async function deleteItem(id: number) {
+  const url = LOCAL_URL + `deleteapp/${id}`;
+  try {
+    const response = await fetch(url, {
+      method: "DELETE",
+      headers: getHeaderInfo(),
+    });
+
+    const json = await response.json();
+
+    console.log(json);
+    return json;
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+export { getAllAppData, postNewApp, deleteItem };

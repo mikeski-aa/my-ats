@@ -21,15 +21,15 @@ function App() {
 
   return (
     <div className="mainContent">
-      <div>Hello world</div>
       <InputComponent apps={apps} setApps={setApps} />
       <div className="itemHeaders">
-        <div className="itemInfo">Company Name</div>
-        <div className="itemInfo">Applied date</div>
-        <div className="itemInfo">Response date</div>
-        <div className="itemInfo">Comments</div>
-        <div className="itemInfo">Location</div>
-        <div className="itemInfo">Status</div>
+        <div className="itemHeaderInfo">Company Name</div>
+        <div className="itemHeaderInfo">Applied date</div>
+        <div className="itemHeaderInfo">Response date</div>
+        <div className="itemHeaderInfo">Comments</div>
+        <div className="itemHeaderInfo">Location</div>
+        <div className="itemHeaderInfo">Status</div>
+        <div className="itemHeaderInfo">Remove</div>
       </div>
       {apps.map((item, index) => (
         <IndividualItem application={item} key={index} />

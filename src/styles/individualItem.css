@@ -5,15 +5,19 @@
   width: 980px;
 }
 
-.itemInfo {
+.itemInfo,
+.itemHeaderInfo {
   width: 150px;
   overflow-x: hidden;
+  text-align: center;
 }
 
 .itemHeaders {
   margin-bottom: 5px;
   border-bottom: 2px solid black;
   border-top: 2px solid black;
+  margin-top: 5px;
+  font-weight: bolder;
 }
 
 select {

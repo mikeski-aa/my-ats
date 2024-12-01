@@ -24,7 +24,7 @@ function IndividualItem({ application }: { application: IStagedata }) {
       <div className="itemInfo">{application.companyName}</div>
       <div className="itemInfo">{convertDate(application.applyDate)}</div>
       <div className="itemInfo">{convertDate(application.endDate)}</div>
-      <div className="comments">Comments go here</div>
+      <div className="itemInfo">Comments go here</div>
       <div className="itemInfo">{application.location}</div>
       <div className="itemInfo">
         <select>
@@ -34,6 +34,7 @@ function IndividualItem({ application }: { application: IStagedata }) {
           <option>Rejected</option>
         </select>
       </div>
+      <button className="itemInfo">Remove</button>
     </div>
   );
 }
