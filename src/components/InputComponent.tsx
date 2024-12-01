@@ -1,6 +1,5 @@
 import { Dispatch, SetStateAction, SyntheticEvent, useState } from "react";
 import "../styles/inputComponent.css";
-import { IStagedata } from "../interface";
 import { postNewApp } from "../services/appCalls";
 
 function InputComponent({

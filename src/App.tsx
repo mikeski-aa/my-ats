@@ -7,14 +7,17 @@ import { IStagedata } from "./interface";
 import { getAllAppData } from "./services/appCalls";
 
 function App() {
-  const [apps, setApps] = useState<IStagedata[]>(applications);
+  const [apps, setApps] = useState<IStagedata[]>([]);
   const [rerun, setRerun] = useState<number>(0);
+  const [loading, setLoading] = useState<boolean>(false);
 
   useEffect(() => {
     const getData = async () => {
+      setLoading(true);
       const newData: IStagedata[] = await getAllAppData();
 
       setApps(newData);
+      setLoading(false);
     };
 
     getData();
@@ -32,6 +35,7 @@ function App() {
         <div className="itemHeaderInfo">Status</div>
         <div className="itemHeaderInfo">Remove</div>
       </div>
+
       {apps.map((item, index) => (
         <IndividualItem
           application={item}

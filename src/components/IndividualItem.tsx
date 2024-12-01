@@ -1,6 +1,6 @@
 import { Dispatch, SetStateAction, SyntheticEvent } from "react";
 import { IStagedata } from "../interface";
-import { deleteItem, getAllAppData } from "../services/appCalls";
+import { deleteItem, updateStage } from "../services/appCalls";
 import "../styles/individualItem.css";
 
 function IndividualItem({
@@ -13,9 +13,9 @@ function IndividualItem({
   setRerun: Dispatch<SetStateAction<number>>;
 }) {
   // converting dates to dd/mm/yy
-  const convertDate = (input: Date | null): string => {
+  const convertDate = (input: Date | null | string): string => {
     // checking to make sure input isn't null
-    if (input != null) {
+    if (input != null && input != `1999-12-31T23:00:00.000Z`) {
       console.log(input);
 
       const dateFormat = new Date(input);
@@ -39,7 +39,11 @@ function IndividualItem({
 
   const handleSelectChange = async (e: SyntheticEvent) => {
     const target = e.target as HTMLInputElement;
-    console.log(target.value);
+
+    if (application.id) {
+      await updateStage(application.id, target.value, application.endDate);
+      setRerun(rerun + 1);
+    }
   };
 
   return (
@@ -51,7 +55,7 @@ function IndividualItem({
       <div className="itemInfo">{application.location}</div>
       <div className="itemInfo">
         <select
-          value={application.stage}
+          value={application.status}
           onChange={(e) => handleSelectChange(e)}
         >
           <option value={"Applied"}>Applied</option>

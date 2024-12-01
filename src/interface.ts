@@ -3,7 +3,7 @@ export interface IStagedata {
   companyName: string;
   applyDate: Date;
   endDate: Date | null;
-  stage: string;
+  status: string;
   comment: string[] | null;
   location: string;
 }
