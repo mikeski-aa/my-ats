@@ -2,3 +2,8 @@
   display: flex;
   gap: 1rem;
 }
+
+.itemInfo {
+  width: 150px;
+  overflow-x: hidden;
+}
