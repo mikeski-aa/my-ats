@@ -22,6 +22,7 @@ function IndividualItem({ application }: { application: IStagedata }) {
       <div className="itemInfo">{convertDate(application.applyDate)}</div>
       <div className="itemInfo">{convertDate(application.endDate)}</div>
       <div className="comments">Comments go here</div>
+      <div className="itemInfo">{application.location}</div>
       <div className="itemInfo">
         <select>
           <option>Applied</option>

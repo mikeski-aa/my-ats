@@ -7,6 +7,7 @@ const applications: IStagedata[] = [
     endDate: new Date("2024-10-05"),
     stage: "Applied",
     comment: null,
+    location: "Berlin",
   },
   {
     companyName: "Comapny Two",
@@ -14,6 +15,7 @@ const applications: IStagedata[] = [
     endDate: null,
     stage: "Rejcted",
     comment: null,
+    location: "Berlin",
   },
   {
     companyName: "Comapny Three",
@@ -21,6 +23,7 @@ const applications: IStagedata[] = [
     endDate: null,
     stage: "Interview",
     comment: null,
+    location: "Berlin",
   },
 ];
 
