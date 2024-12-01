@@ -1,6 +1,14 @@
-import { SyntheticEvent, useState } from "react";
+import { Dispatch, SetStateAction, SyntheticEvent, useState } from "react";
+import "../styles/inputComponent.css";
+import { IStagedata } from "../interface";
 
-function InputComponent() {
+function InputComponent({
+  apps,
+  setApps,
+}: {
+  apps: IStagedata[];
+  setApps: Dispatch<SetStateAction<IStagedata[]>>;
+}) {
   const [nameInput, setNameInput] = useState<string>("");
   const [locationInput, setLocationInput] = useState<string>("");
 
@@ -14,7 +22,27 @@ function InputComponent() {
     setLocationInput(target.value);
   };
 
-  const handleAddClick = () => {};
+  const createNewAppObject = () => {
+    const newApp: IStagedata = {
+      companyName: nameInput,
+      applyDate: new Date(),
+      endDate: null,
+      stage: "Applied",
+      comment: null,
+      location: locationInput,
+    };
+
+    return newApp;
+  };
+
+  const handleAddClick = () => {
+    const shallowCopy = [...apps];
+    shallowCopy.push(createNewAppObject());
+
+    setApps(shallowCopy);
+    setNameInput("");
+    setLocationInput("");
+  };
 
   return (
     <div className="inputDiv">
