@@ -48,7 +48,7 @@ function IndividualItem({
 
   return (
     <div className="individualItem">
-      <div className="itemInfo">{application.companyName}</div>
+      <div className="itemInfo name">{application.companyName}</div>
       <div className="itemInfo">{convertDate(application.applyDate)}</div>
       <div className="itemInfo">{convertDate(application.endDate)}</div>
       <div className="itemInfo">Comments go here</div>

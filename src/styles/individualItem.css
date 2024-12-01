@@ -2,7 +2,7 @@
 .itemHeaders {
   display: flex;
   gap: 1rem;
-  width: 980px;
+  width: 1500px;
 }
 
 .itemInfo,
@@ -22,4 +22,9 @@
 
 select {
   width: 150px;
+}
+
+.itemHeaderInfo.name,
+.itemInfo.name {
+  width: 300px;
 }

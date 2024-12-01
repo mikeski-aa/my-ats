@@ -27,7 +27,7 @@ function App() {
     <div className="mainContent">
       <InputComponent rerun={rerun} setRerun={setRerun} />
       <div className="itemHeaders">
-        <div className="itemHeaderInfo">Company Name</div>
+        <div className="itemHeaderInfo name">Company Name</div>
         <div className="itemHeaderInfo">Applied date</div>
         <div className="itemHeaderInfo">Response date</div>
         <div className="itemHeaderInfo">Comments</div>
