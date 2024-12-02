@@ -34,15 +34,16 @@ function App() {
         <div className="itemHeaderInfo">Status</div>
         <div className="itemHeaderInfo">Remove</div>
       </div>
-
-      {apps.map((item, index) => (
-        <IndividualItem
-          application={item}
-          key={index}
-          rerun={rerun}
-          setRerun={setRerun}
-        />
-      ))}
+      <div className="appHolder">
+        {apps.map((item, index) => (
+          <IndividualItem
+            application={item}
+            key={index}
+            rerun={rerun}
+            setRerun={setRerun}
+          />
+        ))}
+      </div>
     </div>
   );
 }
