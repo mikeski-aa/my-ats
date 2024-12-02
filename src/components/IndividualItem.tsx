@@ -51,7 +51,6 @@ function IndividualItem({
       <div className="itemInfo name">{application.companyName}</div>
       <div className="itemInfo">{convertDate(application.applyDate)}</div>
       <div className="itemInfo">{convertDate(application.endDate)}</div>
-      <div className="itemInfo">Comments go here</div>
       <div className="itemInfo">{application.location}</div>
       <div className="itemInfo">
         <select

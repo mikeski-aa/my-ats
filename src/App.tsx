@@ -30,7 +30,6 @@ function App() {
         <div className="itemHeaderInfo name">Company Name</div>
         <div className="itemHeaderInfo">Applied date</div>
         <div className="itemHeaderInfo">Response date</div>
-        <div className="itemHeaderInfo">Comments</div>
         <div className="itemHeaderInfo">Location</div>
         <div className="itemHeaderInfo">Status</div>
         <div className="itemHeaderInfo">Remove</div>
