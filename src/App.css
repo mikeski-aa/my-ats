@@ -15,3 +15,43 @@ body {
   flex-direction: column;
   gap: 0.2rem;
 }
+
+input {
+  border-radius: 5px;
+  padding: 5px;
+  outline: none;
+  border: none;
+  width: 150px;
+}
+
+input:focus {
+  outline: 2px solid orangered;
+}
+
+label {
+  font-weight: bolder;
+}
+
+select {
+  border-radius: 5px;
+  outline: none;
+  border: 2px solid rgba(255, 255, 255, 0);
+}
+
+select:focus {
+  border: 2px solid orangered;
+}
+
+button {
+  border-radius: 5px;
+  outline: none;
+  border: 2px solid orangered;
+  font-weight: bolder;
+  background-color: rgb(255, 255, 255);
+  transition-duration: 0.5s;
+}
+
+button:hover {
+  cursor: pointer;
+  background-color: orangered;
+}

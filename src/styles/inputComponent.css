@@ -9,35 +9,7 @@
   flex-direction: column;
 }
 
-input {
-  border-radius: 5px;
-  padding: 5px;
-  outline: none;
-  border: none;
-  width: 150px;
-}
-
-input:focus {
-  outline: 2px solid orangered;
-}
-
-label {
-  font-weight: bolder;
-}
-
-select {
-  border-radius: 5px;
-  outline: none;
-  border: none;
-}
-
-select:focus {
-  border: 2px solid orangered;
-}
-
-button {
-  border-radius: 5px;
-  outline: none;
-  border: 2px solid orangered;
-  font-weight: bolder;
+.addButton {
+  width: 70px;
+  height: 25px;
 }

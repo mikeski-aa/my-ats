@@ -68,7 +68,9 @@ function InputComponent({
           onChange={(e) => handleLocationInput(e)}
         ></input>
       </div>
-      <button onClick={handleAddClick}>Add</button>
+      <button onClick={handleAddClick} className="addButton">
+        Add
+      </button>
     </div>
   );
 }
