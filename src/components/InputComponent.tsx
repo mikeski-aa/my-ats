@@ -1,4 +1,9 @@
-import { Dispatch, SetStateAction, SyntheticEvent, useState } from "react";
+import React, {
+  Dispatch,
+  SetStateAction,
+  SyntheticEvent,
+  useState,
+} from "react";
 import "../styles/inputComponent.css";
 import { postNewApp } from "../services/appCalls";
 
@@ -23,10 +28,20 @@ function InputComponent({
   };
 
   const handleAddClick = async () => {
+    if (nameInput === "" || locationInput === "") {
+      return;
+    }
+
     await postNewApp(nameInput, locationInput);
     setRerun(rerun + 1);
     setNameInput("");
     setLocationInput("");
+  };
+
+  const handleKeyDown = async (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === "Enter") {
+      await handleAddClick();
+    }
   };
 
   return (
@@ -37,6 +52,7 @@ function InputComponent({
           type="text"
           minLength={1}
           maxLength={30}
+          onKeyDown={(e) => handleKeyDown(e)}
           value={nameInput}
           onChange={(e) => handleNameInput(e)}
         ></input>
@@ -48,6 +64,7 @@ function InputComponent({
           minLength={1}
           maxLength={30}
           value={locationInput}
+          onKeyDown={(e) => handleKeyDown(e)}
           onChange={(e) => handleLocationInput(e)}
         ></input>
       </div>
