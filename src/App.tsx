@@ -2,9 +2,10 @@ import { useEffect, useState } from "react";
 import "./App.css";
 import IndividualItem from "./components/IndividualItem";
 import InputComponent from "./components/InputComponent";
-import { applications } from "./utils/tempData";
 import { IStagedata } from "./interface";
 import { getAllAppData } from "./services/appCalls";
+import MoonIcon from "../src/assets/moon.svg?react";
+import SunIcon from "../src/assets/sun.svg?react";
 
 function App() {
   enum Theme {
@@ -14,7 +15,7 @@ function App() {
 
   const [apps, setApps] = useState<IStagedata[]>([]);
   const [rerun, setRerun] = useState<number>(0);
-  const [theme, setTheme] = useState<string>(Theme.Light);
+  const [theme, setTheme] = useState<string>();
 
   useEffect(() => {
     const getData = async () => {
@@ -25,13 +26,42 @@ function App() {
     getData();
   }, [rerun]);
 
+  // get from localstorage else set as default light
   useEffect(() => {
     const item = localStorage.getItem("theme");
-    console.log(item);
+    if (item) {
+      setTheme(item);
+    } else {
+      setTheme(Theme.Light);
+    }
   }, []);
+
+  useEffect(() => {
+    if (theme) {
+      document.documentElement.setAttribute("data-theme", theme);
+    }
+  }, [theme]);
+
+  // set setting in localstorage
+  const handleThemeSwitch = () => {
+    if (theme === Theme.Light) {
+      setTheme(Theme.Dark);
+      localStorage.setItem("theme", Theme.Dark);
+    } else {
+      setTheme(Theme.Light);
+      localStorage.setItem("theme", Theme.Light);
+    }
+  };
 
   return (
     <div className="mainContent">
+      <button className="themeSwitch" onClick={handleThemeSwitch}>
+        {theme === Theme.Light ? (
+          <MoonIcon className="iconSvg" />
+        ) : (
+          <SunIcon className="iconSvg" />
+        )}
+      </button>
       <InputComponent rerun={rerun} setRerun={setRerun} />
       <div className="itemHeaders">
         <div className="itemHeaderInfo name">Company Name</div>
