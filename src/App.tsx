@@ -6,6 +6,7 @@ import { IStagedata } from "./interface";
 import { getAllAppData } from "./services/appCalls";
 import MoonIcon from "../src/assets/moon.svg?react";
 import SunIcon from "../src/assets/sun.svg?react";
+import { details } from "../data.ts";
 
 function App() {
   enum Theme {
@@ -63,6 +64,12 @@ function App() {
         )}
       </button>
       <InputComponent rerun={rerun} setRerun={setRerun} />
+      <div className="details">
+        <div className="detailItem">Email: {details.email}</div>
+        <div className="detailItem">Number: {details.number}</div>
+        <div className="detailItem">Number: {details.portfolio}</div>
+        <div className="detailItem">Number: {details.linkedin}</div>
+      </div>
       <div className="itemHeaders">
         <div className="itemHeaderInfo name">Company Name</div>
         <div className="itemHeaderInfo">Applied date</div>
