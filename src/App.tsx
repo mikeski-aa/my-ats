@@ -17,7 +17,11 @@ function App() {
   const [apps, setApps] = useState<IStagedata[]>([]);
   const [rerun, setRerun] = useState<number>(0);
   const [theme, setTheme] = useState<string>();
-  const divRef: RefObject<HTMLDivElement> = useRef(null);
+  const divZero: RefObject<HTMLDivElement> = useRef(null);
+  const divOne: RefObject<HTMLDivElement> = useRef(null);
+  const divTwo: RefObject<HTMLDivElement> = useRef(null);
+  const divThree: RefObject<HTMLDivElement> = useRef(null);
+  const divFour: RefObject<HTMLDivElement> = useRef(null);
 
   useEffect(() => {
     const getData = async () => {
@@ -55,9 +59,40 @@ function App() {
     }
   };
 
-  const handleOnClickCopy = () => {
-    const textCopy = divRef.current?.innerText;
-    alert(textCopy);
+  const handleOnClickCopy = (id: number) => {
+    let textCopy: string | undefined;
+    switch (id) {
+      case 0:
+        textCopy = divZero.current?.innerText;
+        if (textCopy) {
+          navigator.clipboard.writeText(textCopy);
+        }
+        break;
+      case 1:
+        textCopy = divOne.current?.innerText;
+        if (textCopy) {
+          navigator.clipboard.writeText(textCopy);
+        }
+        break;
+      case 2:
+        textCopy = divTwo.current?.innerText;
+        if (textCopy) {
+          navigator.clipboard.writeText(textCopy);
+        }
+        break;
+      case 3:
+        textCopy = divThree.current?.innerText;
+        if (textCopy) {
+          navigator.clipboard.writeText(textCopy);
+        }
+        break;
+      case 4:
+        textCopy = divFour.current?.innerText;
+        if (textCopy) {
+          navigator.clipboard.writeText(textCopy);
+        }
+        break;
+    }
   };
 
   return (
@@ -71,19 +106,39 @@ function App() {
       </button>
       <InputComponent rerun={rerun} setRerun={setRerun} />
       <div className="details">
-        <div className="detailItem" onClick={handleOnClickCopy}>
+        <div
+          className="detailItem"
+          ref={divZero}
+          onClick={() => handleOnClickCopy(0)}
+        >
           {details.email}
         </div>
-        <div className="detailItem" ref={divRef} onClick={handleOnClickCopy}>
+        <div
+          className="detailItem"
+          ref={divOne}
+          onClick={() => handleOnClickCopy(1)}
+        >
           {details.number}
         </div>
-        <div className="detailItem" ref={divRef} onClick={handleOnClickCopy}>
+        <div
+          className="detailItem"
+          ref={divTwo}
+          onClick={() => handleOnClickCopy(2)}
+        >
           {details.linkedin}
         </div>
-        <div className="detailItem" ref={divRef} onClick={handleOnClickCopy}>
+        <div
+          className="detailItem"
+          ref={divThree}
+          onClick={() => handleOnClickCopy(3)}
+        >
           {details.portfolio}
         </div>
-        <div className="detailItem" ref={divRef} onClick={handleOnClickCopy}>
+        <div
+          className="detailItem"
+          ref={divFour}
+          onClick={() => handleOnClickCopy(4)}
+        >
           {details.github}
         </div>
       </div>
