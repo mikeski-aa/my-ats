@@ -55,7 +55,10 @@ function App() {
     }
   };
 
-  const handleOnClickCopy = () => {};
+  const handleOnClickCopy = () => {
+    const textCopy = divRef.current?.innerText;
+    alert(textCopy);
+  };
 
   return (
     <div className="mainContent">
@@ -71,16 +74,16 @@ function App() {
         <div className="detailItem" onClick={handleOnClickCopy}>
           {details.email}
         </div>
-        <div className="detailItem" ref={divRef}>
+        <div className="detailItem" ref={divRef} onClick={handleOnClickCopy}>
           {details.number}
         </div>
-        <div className="detailItem" ref={divRef}>
+        <div className="detailItem" ref={divRef} onClick={handleOnClickCopy}>
           {details.linkedin}
         </div>
-        <div className="detailItem" ref={divRef}>
+        <div className="detailItem" ref={divRef} onClick={handleOnClickCopy}>
           {details.portfolio}
         </div>
-        <div className="detailItem" ref={divRef}>
+        <div className="detailItem" ref={divRef} onClick={handleOnClickCopy}>
           {details.github}
         </div>
       </div>
