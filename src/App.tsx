@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { RefAttributes, RefObject, useEffect, useRef, useState } from "react";
 import "./App.css";
 import IndividualItem from "./components/IndividualItem";
 import InputComponent from "./components/InputComponent";
@@ -17,6 +17,7 @@ function App() {
   const [apps, setApps] = useState<IStagedata[]>([]);
   const [rerun, setRerun] = useState<number>(0);
   const [theme, setTheme] = useState<string>();
+  const divRef: RefObject<HTMLDivElement> = useRef(null);
 
   useEffect(() => {
     const getData = async () => {
@@ -54,6 +55,8 @@ function App() {
     }
   };
 
+  const handleOnClickCopy = () => {};
+
   return (
     <div className="mainContent">
       <button className="themeSwitch" onClick={handleThemeSwitch}>
@@ -65,10 +68,21 @@ function App() {
       </button>
       <InputComponent rerun={rerun} setRerun={setRerun} />
       <div className="details">
-        <div className="detailItem">Email: {details.email}</div>
-        <div className="detailItem">Number: {details.number}</div>
-        <div className="detailItem">Number: {details.portfolio}</div>
-        <div className="detailItem">Number: {details.linkedin}</div>
+        <div className="detailItem" onClick={handleOnClickCopy}>
+          {details.email}
+        </div>
+        <div className="detailItem" ref={divRef}>
+          {details.number}
+        </div>
+        <div className="detailItem" ref={divRef}>
+          {details.linkedin}
+        </div>
+        <div className="detailItem" ref={divRef}>
+          {details.portfolio}
+        </div>
+        <div className="detailItem" ref={divRef}>
+          {details.github}
+        </div>
       </div>
       <div className="itemHeaders">
         <div className="itemHeaderInfo name">Company Name</div>
