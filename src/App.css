@@ -19,6 +19,10 @@ body {
 
 input {
   outline: var(--outline);
+  border-radius: 5px;
+  padding: 5px;
+  border: none;
+  width: 150px;
 }
 
 .mainContent {
@@ -31,13 +35,6 @@ input {
   display: flex;
   flex-direction: column;
   gap: 0.2rem;
-}
-
-input {
-  border-radius: 5px;
-  padding: 5px;
-  border: none;
-  width: 150px;
 }
 
 input:focus {
@@ -62,8 +59,14 @@ button {
   outline: none;
   border: 2px solid orangered;
   font-weight: bolder;
-  background-color: rgb(255, 255, 255);
+  background-color: var(--bg-color);
+  color: var(--text-color);
   transition-duration: 0.5s;
+}
+
+select {
+  background-color: var(--bg-color);
+  color: var(--text-color);
 }
 
 button:hover {
