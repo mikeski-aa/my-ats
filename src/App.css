@@ -112,8 +112,11 @@ button:hover {
   width: fit-content;
   border-radius: 5px;
   padding: 2px;
+  background-color: var(--bg-color);
+  font-weight: bold;
 }
 
 .detailItem:hover {
   cursor: pointer;
+  filter: invert(1);
 }
