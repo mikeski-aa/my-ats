@@ -14,8 +14,8 @@
 
 .itemHeaders {
   margin-bottom: 5px;
-  border-bottom: 2px solid black;
-  border-top: 2px solid black;
+  border-bottom: 2px solid var(--text-color);
+  border-top: 2px solid var(--text-color);
   margin-top: 5px;
   font-weight: bolder;
 }
