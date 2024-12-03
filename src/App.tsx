@@ -59,7 +59,7 @@ function App() {
         {theme === Theme.Light ? (
           <MoonIcon className="iconSvg" />
         ) : (
-          <SunIcon className="iconSvg" />
+          <SunIcon className="iconSvg sun" />
         )}
       </button>
       <InputComponent rerun={rerun} setRerun={setRerun} />

@@ -15,6 +15,7 @@ body {
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   background-color: var(--bg-color);
   color: var(--text-color);
+  transition-duration: 0.5s;
 }
 
 input {
@@ -24,6 +25,7 @@ input {
   width: 150px;
   background-color: var(--bg-color);
   color: var(--text-color);
+  transition-duration: 0.5s;
 }
 
 .mainContent {
@@ -58,7 +60,7 @@ select:focus {
 button {
   border-radius: 5px;
   outline: none;
-  border: 2px solid orangered;
+  border: 2px solid var(--text-color);
   font-weight: bolder;
   background-color: var(--bg-color);
   color: var(--text-color);
@@ -69,16 +71,22 @@ select {
   background-color: var(--bg-color);
   color: var(--text-color);
   border: 2px solid var(--text-color);
+  transition-duration: 0.5s;
 }
 
 button:hover {
   cursor: pointer;
   background-color: orangered;
+  color: var(--bg-color);
 }
 
 .iconSvg {
   width: 40px;
   height: 40px;
+}
+
+.iconSvg.sun {
+  filter: invert(1);
 }
 
 .themeSwitch {
