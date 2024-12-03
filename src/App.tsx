@@ -7,21 +7,28 @@ import { IStagedata } from "./interface";
 import { getAllAppData } from "./services/appCalls";
 
 function App() {
+  enum Theme {
+    Light = "light",
+    Dark = "dark",
+  }
+
   const [apps, setApps] = useState<IStagedata[]>([]);
   const [rerun, setRerun] = useState<number>(0);
-  const [loading, setLoading] = useState<boolean>(false);
+  const [theme, setTheme] = useState<string>(Theme.Light);
 
   useEffect(() => {
     const getData = async () => {
-      setLoading(true);
       const newData: IStagedata[] = await getAllAppData();
-
       setApps(newData);
-      setLoading(false);
     };
 
     getData();
   }, [rerun]);
+
+  useEffect(() => {
+    const item = localStorage.getItem("theme");
+    console.log(item);
+  }, []);
 
   return (
     <div className="mainContent">

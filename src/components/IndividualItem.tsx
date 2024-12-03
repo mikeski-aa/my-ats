@@ -16,8 +16,6 @@ function IndividualItem({
   const convertDate = (input: Date | null | string): string => {
     // checking to make sure input isn't null
     if (input != null && input != `1999-12-31T23:00:00.000Z`) {
-      console.log(input);
-
       const dateFormat = new Date(input);
       const day = String(dateFormat.getDate()).padStart(2, "0");
       const month = String(dateFormat.getMonth() + 1).padStart(2, "0");

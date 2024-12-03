@@ -17,7 +17,6 @@ async function getAllAppData() {
 
     const json = await response.json();
 
-    console.log(json);
     return json;
   } catch (error) {
     console.log(error);
@@ -41,7 +40,6 @@ async function postNewApp(companyName: string, location: string) {
 
     const json = await response.json();
 
-    console.log(json);
     return json;
   } catch (error) {
     console.log(error);
@@ -58,7 +56,6 @@ async function deleteItem(id: number) {
 
     const json = await response.json();
 
-    console.log(json);
     return json;
   } catch (error) {
     console.log(error);
@@ -82,7 +79,6 @@ async function updateStage(id: number, stage: string, date: Date | null) {
 
     const json = await response.json();
 
-    console.log(json);
     return json;
   } catch (error) {
     console.log(error);
