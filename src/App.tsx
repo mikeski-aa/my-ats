@@ -6,7 +6,7 @@ import { IStagedata } from "./interface";
 import { getAllAppData } from "./services/appCalls";
 import MoonIcon from "../src/assets/moon.svg?react";
 import SunIcon from "../src/assets/sun.svg?react";
-import ContactDetails from "./components/ContactDetails";
+import ContactDetailsHolder from "./components/ContactDetailsHolder";
 
 function App() {
   enum Theme {
@@ -64,7 +64,7 @@ function App() {
         )}
       </button>
       <InputComponent rerun={rerun} setRerun={setRerun} />
-      <ContactDetails />
+      <ContactDetailsHolder />
       <div className="itemHeaders">
         <div className="itemHeaderInfo name">Company Name</div>
         <div className="itemHeaderInfo">Applied date</div>

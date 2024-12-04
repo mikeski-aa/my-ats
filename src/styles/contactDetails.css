@@ -3,6 +3,7 @@
   flex-direction: column;
   align-items: left;
   margin-top: 4px;
+  width: 190px;
 }
 
 .detailsHolder {
@@ -14,7 +15,6 @@
 .detailItem {
   width: fit-content;
   border-radius: 5px;
-  padding: 2px;
   font-weight: bold;
   height: 29px;
 }
@@ -22,4 +22,25 @@
 .detailItem:hover {
   cursor: pointer;
   color: orangered;
+}
+
+.itemWithToast {
+  display: flex;
+  gap: 1rem;
+}
+
+.copiedToast {
+  border: 2px solid var(--text-color);
+  border-radius: 5px;
+  padding: 1px;
+  position: relative;
+}
+
+.detailInputBox {
+  width: 176px;
+}
+
+.editBtn,
+.hideButton {
+  width: 50px;
 }

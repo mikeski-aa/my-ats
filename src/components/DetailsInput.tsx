@@ -55,30 +55,35 @@ function DetailsInput({
         placeholder="email"
         value={details.email}
         onChange={(e) => handleInputType(e, 0)}
+        className="detailInputBox"
       ></input>
       <input
         type="text"
         placeholder="phone number"
         value={details.number}
         onChange={(e) => handleInputType(e, 1)}
+        className="detailInputBox"
       ></input>
       <input
         type="text"
         placeholder="LinkedIn"
         value={details.linkedin}
         onChange={(e) => handleInputType(e, 2)}
+        className="detailInputBox"
       ></input>
       <input
         type="text"
         placeholder="portfolio"
         value={details.portfolio}
         onChange={(e) => handleInputType(e, 3)}
+        className="detailInputBox"
       ></input>
       <input
         type="text"
         placeholder="github"
         value={details.github}
         onChange={(e) => handleInputType(e, 4)}
+        className="detailInputBox"
       ></input>
       <button onClick={handleSaveClick}>Save</button>
     </div>
