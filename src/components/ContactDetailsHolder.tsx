@@ -18,7 +18,7 @@ function ContactDetailsHolder() {
     return (
       <div className="detailsHolder">
         <button className="hideButton" onClick={handleHideClick}>
-          {hideBox ? "Show" : "Hide"}
+          {hideBox ? "Show details" : null}
         </button>
       </div>
     );
@@ -39,7 +39,7 @@ function ContactDetailsHolder() {
         />
       )}
       <button className="hideButton" onClick={handleHideClick}>
-        {hideBox ? "Show" : "Hide"}
+        {hideBox ? null : "Hide details"}
       </button>
     </div>
   );
