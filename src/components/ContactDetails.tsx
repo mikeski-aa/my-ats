@@ -2,9 +2,11 @@ import { RefObject, useRef, useState } from "react";
 import { details } from "../../data.ts";
 import "../styles/contactDetails.css";
 import DetailsInput from "./DetailsInput.tsx";
+import { IDetails } from "../interface.ts";
 
 function ContactDetails() {
   const [showEdit, setShowEdit] = useState<boolean>(false);
+  const [currentDetails, setCurrentDetails] = useState<IDetails>(details);
   const divZero: RefObject<HTMLDivElement> = useRef(null);
   const divOne: RefObject<HTMLDivElement> = useRef(null);
   const divTwo: RefObject<HTMLDivElement> = useRef(null);
@@ -17,31 +19,31 @@ function ContactDetails() {
       case 0:
         textCopy = divZero.current?.innerText;
         if (textCopy) {
-          navigator.clipboard.writeText(details.email);
+          navigator.clipboard.writeText(currentDetails.email);
         }
         break;
       case 1:
         textCopy = divOne.current?.innerText;
         if (textCopy) {
-          navigator.clipboard.writeText(details.number);
+          navigator.clipboard.writeText(currentDetails.number);
         }
         break;
       case 2:
         textCopy = divTwo.current?.innerText;
         if (textCopy) {
-          navigator.clipboard.writeText(details.linkedin);
+          navigator.clipboard.writeText(currentDetails.linkedin);
         }
         break;
       case 3:
         textCopy = divThree.current?.innerText;
         if (textCopy) {
-          navigator.clipboard.writeText(details.portfolio);
+          navigator.clipboard.writeText(currentDetails.portfolio);
         }
         break;
       case 4:
         textCopy = divFour.current?.innerText;
         if (textCopy) {
-          navigator.clipboard.writeText(details.github);
+          navigator.clipboard.writeText(currentDetails.github);
         }
         break;
     }
@@ -54,7 +56,11 @@ function ContactDetails() {
   return (
     <div className="detailsHolder">
       {showEdit ? (
-        <DetailsInput setShowEdit={setShowEdit} />
+        <DetailsInput
+          setShowEdit={setShowEdit}
+          currentDetails={currentDetails}
+          setCurrentDetails={setCurrentDetails}
+        />
       ) : (
         <div className="details">
           <div

@@ -3,18 +3,17 @@ import { IDetails } from "../interface";
 
 function DetailsInput({
   setShowEdit,
+  currentDetails,
+  setCurrentDetails,
 }: {
   setShowEdit: Dispatch<SetStateAction<boolean>>;
+  currentDetails: IDetails;
+  setCurrentDetails: Dispatch<SetStateAction<IDetails>>;
 }) {
-  const [details, setDetails] = useState<IDetails>({
-    email: "",
-    phoneNumber: "",
-    linkedin: "",
-    portfolio: "",
-    github: "",
-  });
+  const [details, setDetails] = useState<IDetails>(currentDetails);
 
   const handleSaveClick = () => {
+    setCurrentDetails(details);
     setShowEdit(false);
   };
 
@@ -28,7 +27,7 @@ function DetailsInput({
       case 1:
         setDetails((prevDetails) => ({
           ...prevDetails,
-          phoneNumber: target.value,
+          number: target.value,
         }));
         break;
       case 2:
@@ -60,7 +59,7 @@ function DetailsInput({
       <input
         type="text"
         placeholder="phone number"
-        value={details.phoneNumber}
+        value={details.number}
         onChange={(e) => handleInputType(e, 1)}
       ></input>
       <input

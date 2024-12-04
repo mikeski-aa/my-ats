@@ -10,7 +10,7 @@ export interface IStagedata {
 
 export interface IDetails {
   email: string;
-  phoneNumber: string;
+  number: string;
   linkedin: string;
   portfolio: string;
   github: string;
