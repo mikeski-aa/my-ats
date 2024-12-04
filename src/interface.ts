@@ -7,3 +7,11 @@ export interface IStagedata {
   comment: string[] | null;
   location: string;
 }
+
+export interface IDetails {
+  email: string;
+  phoneNumber: string;
+  linkedin: string;
+  portfolio: string;
+  github: string;
+}
