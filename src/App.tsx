@@ -1,4 +1,4 @@
-import { RefAttributes, RefObject, useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
 import IndividualItem from "./components/IndividualItem";
 import InputComponent from "./components/InputComponent";
@@ -6,7 +6,7 @@ import { IStagedata } from "./interface";
 import { getAllAppData } from "./services/appCalls";
 import MoonIcon from "../src/assets/moon.svg?react";
 import SunIcon from "../src/assets/sun.svg?react";
-import { details } from "../data.ts";
+import ContactDetails from "./components/ContactDetails";
 
 function App() {
   enum Theme {
@@ -17,11 +17,6 @@ function App() {
   const [apps, setApps] = useState<IStagedata[]>([]);
   const [rerun, setRerun] = useState<number>(0);
   const [theme, setTheme] = useState<string>();
-  const divZero: RefObject<HTMLDivElement> = useRef(null);
-  const divOne: RefObject<HTMLDivElement> = useRef(null);
-  const divTwo: RefObject<HTMLDivElement> = useRef(null);
-  const divThree: RefObject<HTMLDivElement> = useRef(null);
-  const divFour: RefObject<HTMLDivElement> = useRef(null);
 
   useEffect(() => {
     const getData = async () => {
@@ -59,42 +54,6 @@ function App() {
     }
   };
 
-  const handleOnClickCopy = (id: number) => {
-    let textCopy: string | undefined;
-    switch (id) {
-      case 0:
-        textCopy = divZero.current?.innerText;
-        if (textCopy) {
-          navigator.clipboard.writeText(textCopy);
-        }
-        break;
-      case 1:
-        textCopy = divOne.current?.innerText;
-        if (textCopy) {
-          navigator.clipboard.writeText(textCopy);
-        }
-        break;
-      case 2:
-        textCopy = divTwo.current?.innerText;
-        if (textCopy) {
-          navigator.clipboard.writeText(textCopy);
-        }
-        break;
-      case 3:
-        textCopy = divThree.current?.innerText;
-        if (textCopy) {
-          navigator.clipboard.writeText(textCopy);
-        }
-        break;
-      case 4:
-        textCopy = divFour.current?.innerText;
-        if (textCopy) {
-          navigator.clipboard.writeText(textCopy);
-        }
-        break;
-    }
-  };
-
   return (
     <div className="mainContent">
       <button className="themeSwitch" onClick={handleThemeSwitch}>
@@ -105,43 +64,7 @@ function App() {
         )}
       </button>
       <InputComponent rerun={rerun} setRerun={setRerun} />
-      <div className="details">
-        <div
-          className="detailItem"
-          ref={divZero}
-          onClick={() => handleOnClickCopy(0)}
-        >
-          {details.email}
-        </div>
-        <div
-          className="detailItem"
-          ref={divOne}
-          onClick={() => handleOnClickCopy(1)}
-        >
-          {details.number}
-        </div>
-        <div
-          className="detailItem"
-          ref={divTwo}
-          onClick={() => handleOnClickCopy(2)}
-        >
-          {details.linkedin}
-        </div>
-        <div
-          className="detailItem"
-          ref={divThree}
-          onClick={() => handleOnClickCopy(3)}
-        >
-          {details.portfolio}
-        </div>
-        <div
-          className="detailItem"
-          ref={divFour}
-          onClick={() => handleOnClickCopy(4)}
-        >
-          {details.github}
-        </div>
-      </div>
+      <ContactDetails />
       <div className="itemHeaders">
         <div className="itemHeaderInfo name">Company Name</div>
         <div className="itemHeaderInfo">Applied date</div>
