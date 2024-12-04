@@ -8,6 +8,7 @@ import MoonIcon from "../src/assets/moon.svg?react";
 import SunIcon from "../src/assets/sun.svg?react";
 import ContactDetailsHolder from "./components/ContactDetailsHolder";
 import DownloadCSV from "./components/CSVDownload";
+import CSVParser from "./components/CSVParser";
 
 function App() {
   enum Theme {
@@ -66,7 +67,7 @@ function App() {
             <SunIcon className="iconSvg sun" />
           )}
         </button>
-        <button>Upload CSV</button>
+        <CSVParser />
       </div>
 
       <InputComponent rerun={rerun} setRerun={setRerun} />
