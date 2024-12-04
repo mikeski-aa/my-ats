@@ -57,7 +57,8 @@ select:focus {
   border: 2px solid orangered;
 }
 
-button {
+button,
+.csvDownloadHolder {
   border-radius: 5px;
   outline: none;
   border: 2px solid var(--text-color);
@@ -65,6 +66,7 @@ button {
   background-color: var(--bg-color);
   color: var(--text-color);
   transition-duration: 0.5s;
+  font-size: 0.85rem;
 }
 
 select {
@@ -74,7 +76,8 @@ select {
   transition-duration: 0.5s;
 }
 
-button:hover {
+button:hover,
+.csvDownloadHolder:hover {
   cursor: pointer;
   background-color: orangered;
   color: var(--bg-color);
@@ -104,4 +107,16 @@ button:hover {
   display: flex;
   align-items: center;
   gap: 5rem;
+}
+
+a {
+  text-decoration: none;
+  color: var(--text-color);
+}
+
+.csvDownloadHolder {
+  padding-left: 6px;
+  padding-right: 6px;
+  padding-top: 1px;
+  padding-bottom: 1px;
 }

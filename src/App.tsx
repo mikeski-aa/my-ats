@@ -7,6 +7,7 @@ import { getAllAppData } from "./services/appCalls";
 import MoonIcon from "../src/assets/moon.svg?react";
 import SunIcon from "../src/assets/sun.svg?react";
 import ContactDetailsHolder from "./components/ContactDetailsHolder";
+import DownloadCSV from "./components/CSVDownload";
 
 function App() {
   enum Theme {
@@ -57,7 +58,7 @@ function App() {
   return (
     <div className="mainContent">
       <div className="buttonHolderTop">
-        <button>Download table as CSV</button>
+        <DownloadCSV apps={apps} />
         <button className="themeSwitch" onClick={handleThemeSwitch}>
           {theme === Theme.Light ? (
             <MoonIcon className="iconSvg" />
