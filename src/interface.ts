@@ -15,3 +15,13 @@ export interface IDetails {
   portfolio: string;
   github: string;
 }
+
+export interface ICSVData {
+  id?: string;
+  companyName: string;
+  applyDate: string;
+  endDate: string | null;
+  status: string;
+  comment: string[] | null;
+  location: string;
+}

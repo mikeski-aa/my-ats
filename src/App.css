@@ -58,7 +58,8 @@ select:focus {
 }
 
 button,
-.csvDownloadHolder {
+.csvDownloadHolder,
+.clickButtonUpload {
   border-radius: 5px;
   outline: none;
   border: 2px solid var(--text-color);
@@ -77,7 +78,8 @@ select {
 }
 
 button:hover,
-.csvDownloadHolder:hover {
+.csvDownloadHolder:hover,
+.clickButtonUpload:hover {
   cursor: pointer;
   background-color: orangered;
   color: var(--bg-color);
@@ -114,7 +116,8 @@ a {
   color: var(--text-color);
 }
 
-.csvDownloadHolder {
+.csvDownloadHolder,
+.clickButtonUpload {
   padding-left: 6px;
   padding-right: 6px;
   padding-top: 1px;

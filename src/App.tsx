@@ -11,14 +11,14 @@ import DownloadCSV from "./components/CSVDownload";
 import CSVParser from "./components/CSVParser";
 
 function App() {
+  const [apps, setApps] = useState<IStagedata[]>([]);
+  const [rerun, setRerun] = useState<number>(0);
+  const [theme, setTheme] = useState<string>();
+
   enum Theme {
     Light = "light",
     Dark = "dark",
   }
-
-  const [apps, setApps] = useState<IStagedata[]>([]);
-  const [rerun, setRerun] = useState<number>(0);
-  const [theme, setTheme] = useState<string>();
 
   useEffect(() => {
     const getData = async () => {
@@ -67,7 +67,7 @@ function App() {
             <SunIcon className="iconSvg sun" />
           )}
         </button>
-        <CSVParser />
+        <CSVParser setApps={setApps} />
       </div>
 
       <InputComponent rerun={rerun} setRerun={setRerun} />
