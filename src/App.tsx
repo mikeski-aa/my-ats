@@ -56,14 +56,20 @@ function App() {
 
   return (
     <div className="mainContent">
-      <button className="themeSwitch" onClick={handleThemeSwitch}>
-        {theme === Theme.Light ? (
-          <MoonIcon className="iconSvg" />
-        ) : (
-          <SunIcon className="iconSvg sun" />
-        )}
-      </button>
+      <div className="buttonHolderTop">
+        <button>Download table as CSV</button>
+        <button className="themeSwitch" onClick={handleThemeSwitch}>
+          {theme === Theme.Light ? (
+            <MoonIcon className="iconSvg" />
+          ) : (
+            <SunIcon className="iconSvg sun" />
+          )}
+        </button>
+        <button>Upload CSV</button>
+      </div>
+
       <InputComponent rerun={rerun} setRerun={setRerun} />
+
       <ContactDetailsHolder />
       <div className="itemHeaders">
         <div className="itemHeaderInfo name">Company Name</div>

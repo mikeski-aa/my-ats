@@ -99,3 +99,9 @@ button:hover {
   justify-content: center;
   align-items: center;
 }
+
+.buttonHolderTop {
+  display: flex;
+  align-items: center;
+  gap: 5rem;
+}

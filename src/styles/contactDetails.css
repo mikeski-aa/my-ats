@@ -49,6 +49,7 @@
 
 .hideButton {
   margin-top: 5px;
+  width: fit-content;
 }
 
 .copiedToast.hide {
