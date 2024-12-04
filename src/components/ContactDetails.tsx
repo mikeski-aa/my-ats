@@ -1,8 +1,10 @@
-import { RefObject, useRef } from "react";
+import { RefObject, useRef, useState } from "react";
 import { details } from "../../data.ts";
 import "../styles/contactDetails.css";
+import DetailsInput from "./DetailsInput.tsx";
 
 function ContactDetails() {
+  const [showEdit, setShowEdit] = useState<boolean>(false);
   const divZero: RefObject<HTMLDivElement> = useRef(null);
   const divOne: RefObject<HTMLDivElement> = useRef(null);
   const divTwo: RefObject<HTMLDivElement> = useRef(null);
@@ -45,43 +47,54 @@ function ContactDetails() {
     }
   };
 
+  const handleEditClick = () => {
+    setShowEdit(true);
+  };
+
   return (
-    <div className="details">
-      <div
-        className="detailItem"
-        ref={divZero}
-        onClick={() => handleOnClickCopy(0)}
-      >
-        Email
-      </div>
-      <div
-        className="detailItem"
-        ref={divOne}
-        onClick={() => handleOnClickCopy(1)}
-      >
-        Phone number
-      </div>
-      <div
-        className="detailItem"
-        ref={divTwo}
-        onClick={() => handleOnClickCopy(2)}
-      >
-        LinkedIn
-      </div>
-      <div
-        className="detailItem"
-        ref={divThree}
-        onClick={() => handleOnClickCopy(3)}
-      >
-        Portfolio
-      </div>
-      <div
-        className="detailItem"
-        ref={divFour}
-        onClick={() => handleOnClickCopy(4)}
-      >
-        Github
-      </div>
+    <div className="detailsHolder">
+      {showEdit ? (
+        <DetailsInput setShowEdit={setShowEdit} />
+      ) : (
+        <div className="details">
+          <div
+            className="detailItem"
+            ref={divZero}
+            onClick={() => handleOnClickCopy(0)}
+          >
+            Email
+          </div>
+          <div
+            className="detailItem"
+            ref={divOne}
+            onClick={() => handleOnClickCopy(1)}
+          >
+            Phone number
+          </div>
+          <div
+            className="detailItem"
+            ref={divTwo}
+            onClick={() => handleOnClickCopy(2)}
+          >
+            LinkedIn
+          </div>
+          <div
+            className="detailItem"
+            ref={divThree}
+            onClick={() => handleOnClickCopy(3)}
+          >
+            Portfolio
+          </div>
+          <div
+            className="detailItem"
+            ref={divFour}
+            onClick={() => handleOnClickCopy(4)}
+          >
+            Github
+          </div>
+          <button onClick={handleEditClick}>Edit</button>
+        </div>
+      )}
     </div>
   );
 }
