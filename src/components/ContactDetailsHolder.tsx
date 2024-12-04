@@ -17,7 +17,6 @@ function ContactDetailsHolder() {
   if (hideBox) {
     return (
       <div className="detailsHolder">
-        {" "}
         <button className="hideButton" onClick={handleHideClick}>
           {hideBox ? "Show" : "Hide"}
         </button>
