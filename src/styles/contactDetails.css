@@ -33,8 +33,9 @@
 .copiedToast {
   border: 2px solid var(--text-color);
   border-radius: 5px;
-  padding: 1px;
+  padding: 2px;
   position: relative;
+  transition: opacity 5s;
 }
 
 .detailInputBox {
@@ -44,4 +45,12 @@
 .editBtn,
 .hideButton {
   width: 50px;
+}
+
+.copiedToast.hide {
+  opacity: 0;
+}
+
+.copiedToast.show {
+  opacity: 1;
 }

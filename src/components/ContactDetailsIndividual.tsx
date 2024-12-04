@@ -70,7 +70,11 @@ function ContactDetailsIndividual({
         >
           Email
         </div>
-        {displayToast === 0 ? <div className="copiedToast">Copied!</div> : null}
+        {displayToast === 0 ? (
+          <div className="copiedToast show">Copied!</div>
+        ) : (
+          <div className="copiedToast hide">Copied!</div>
+        )}
       </div>
 
       <div className="itemWithToast">
@@ -81,7 +85,11 @@ function ContactDetailsIndividual({
         >
           Phone number
         </div>
-        {displayToast === 1 ? <div className="copiedToast">Copied!</div> : null}
+        {displayToast === 1 ? (
+          <div className="copiedToast show">Copied!</div>
+        ) : (
+          <div className="copiedToast hide">Copied!</div>
+        )}
       </div>
 
       <div className="itemWithToast">
@@ -92,7 +100,11 @@ function ContactDetailsIndividual({
         >
           LinkedIn
         </div>
-        {displayToast === 2 ? <div className="copiedToast">Copied!</div> : null}
+        {displayToast === 2 ? (
+          <div className="copiedToast show">Copied!</div>
+        ) : (
+          <div className="copiedToast hide">Copied!</div>
+        )}
       </div>
 
       <div className="itemWithToast">
@@ -103,7 +115,11 @@ function ContactDetailsIndividual({
         >
           Portfolio
         </div>
-        {displayToast === 3 ? <div className="copiedToast">Copied!</div> : null}
+        {displayToast === 3 ? (
+          <div className="copiedToast show">Copied!</div>
+        ) : (
+          <div className="copiedToast hide">Copied!</div>
+        )}
       </div>
 
       <div className="itemWithToast">
@@ -114,7 +130,11 @@ function ContactDetailsIndividual({
         >
           Github
         </div>
-        {displayToast === 4 ? <div className="copiedToast">Copied!</div> : null}
+        {displayToast === 4 ? (
+          <div className="copiedToast show">Copied!</div>
+        ) : (
+          <div className="copiedToast hide">Copied!</div>
+        )}
       </div>
 
       <button onClick={handleEditClick} className="editBtn">
