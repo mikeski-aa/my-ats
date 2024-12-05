@@ -6,13 +6,20 @@ import React, {
 } from "react";
 import "../styles/inputComponent.css";
 import { postNewApp } from "../services/appCalls";
+import { IStagedata } from "../interface";
 
 function InputComponent({
   rerun,
   setRerun,
+  devMode,
+  apps,
+  setApps,
 }: {
   rerun: number;
   setRerun: Dispatch<SetStateAction<number>>;
+  devMode: boolean;
+  apps: IStagedata[];
+  setApps: Dispatch<SetStateAction<IStagedata[]>>;
 }) {
   const [nameInput, setNameInput] = useState<string>("");
   const [locationInput, setLocationInput] = useState<string>("");
@@ -32,10 +39,26 @@ function InputComponent({
       return;
     }
 
-    await postNewApp(nameInput, locationInput);
-    setRerun(rerun + 1);
-    setNameInput("");
-    setLocationInput("");
+    // no devmode version does not use database hence we just update state
+    if (devMode) {
+      await postNewApp(nameInput, locationInput);
+      setRerun(rerun + 1);
+      setNameInput("");
+      setLocationInput("");
+    } else {
+      const newApp: IStagedata = {
+        companyName: nameInput,
+        location: locationInput,
+        applyDate: new Date(),
+        endDate: null,
+        status: "Applied",
+        comment: null,
+      };
+
+      const shallowCopy = [...apps];
+      shallowCopy.push(newApp);
+      setApps(shallowCopy);
+    }
   };
 
   const handleKeyDown = async (e: React.KeyboardEvent<HTMLInputElement>) => {

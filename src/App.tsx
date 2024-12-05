@@ -14,6 +14,8 @@ function App() {
   const [apps, setApps] = useState<IStagedata[]>([]);
   const [rerun, setRerun] = useState<number>(0);
   const [theme, setTheme] = useState<string>();
+
+  // devMode - dev mode means using local psql db and other functionality that doesnt work for non-local users
   const devMode = false;
 
   enum Theme {
@@ -72,9 +74,15 @@ function App() {
         <CSVParser setApps={setApps} />
       </div>
 
-      <InputComponent rerun={rerun} setRerun={setRerun} />
+      <InputComponent
+        rerun={rerun}
+        setRerun={setRerun}
+        devMode={devMode}
+        apps={apps}
+        setApps={setApps}
+      />
 
-      <ContactDetailsHolder />
+      {devMode ? <ContactDetailsHolder /> : null}
       <div className="itemHeaders">
         <div className="itemHeaderInfo name">Company Name</div>
         <div className="itemHeaderInfo">Applied date</div>
