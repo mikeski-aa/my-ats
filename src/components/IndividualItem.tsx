@@ -53,9 +53,25 @@ function IndividualItem({
   const handleSelectChange = async (e: SyntheticEvent) => {
     const target = e.target as HTMLInputElement;
 
-    if (application.id) {
-      await updateStage(application.id, target.value, application.endDate);
-      setRerun(rerun + 1);
+    if (devMode) {
+      if (application.id) {
+        await updateStage(application.id, target.value, application.endDate);
+        setRerun(rerun + 1);
+      }
+    } else {
+      const shallowCopy = [...apps];
+
+      shallowCopy.map((item) =>
+        item.companyName === application.companyName
+          ? { ...item, endDate: new Date(), status: target.value }
+          : item
+      );
+
+      console.log("hello");
+      console.log(target.value);
+      console.log(shallowCopy);
+
+      setApps(shallowCopy);
     }
   };
 
