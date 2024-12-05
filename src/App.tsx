@@ -14,6 +14,7 @@ function App() {
   const [apps, setApps] = useState<IStagedata[]>([]);
   const [rerun, setRerun] = useState<number>(0);
   const [theme, setTheme] = useState<string>();
+  const devMode = false;
 
   enum Theme {
     Light = "light",
@@ -21,12 +22,13 @@ function App() {
   }
 
   useEffect(() => {
-    const getData = async () => {
-      const newData: IStagedata[] = await getAllAppData();
-      setApps(newData);
-    };
-
-    getData();
+    if (devMode) {
+      const getData = async () => {
+        const newData: IStagedata[] = await getAllAppData();
+        setApps(newData);
+      };
+      getData();
+    }
   }, [rerun]);
 
   // get from localstorage else set as default light
