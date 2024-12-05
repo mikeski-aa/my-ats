@@ -59,19 +59,28 @@ function IndividualItem({
         setRerun(rerun + 1);
       }
     } else {
-      const shallowCopy = [...apps];
+      if (target.value === "Applied") {
+        const shallowCopy = apps.map((item) =>
+          item.companyName === application.companyName
+            ? { ...item, endDate: null, status: target.value }
+            : item
+        );
 
-      shallowCopy.map((item) =>
-        item.companyName === application.companyName
-          ? { ...item, endDate: new Date(), status: target.value }
-          : item
-      );
+        setApps(shallowCopy);
+      } else {
+        const shallowCopy = apps.map((item) =>
+          item.companyName === application.companyName
+            ? { ...item, endDate: new Date(), status: target.value }
+            : item
+        );
 
-      console.log("hello");
-      console.log(target.value);
-      console.log(shallowCopy);
+        console.log("hello");
+        console.log(target.value);
 
-      setApps(shallowCopy);
+        console.log(shallowCopy);
+
+        setApps(shallowCopy);
+      }
     }
   };
 
