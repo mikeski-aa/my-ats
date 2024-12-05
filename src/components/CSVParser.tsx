@@ -34,7 +34,7 @@ function CSVParser({
   return (
     <div className="parserHolder">
       <label htmlFor="parserInput" className="clickButtonUpload">
-        Upload
+        Upload CSV
       </label>
       <input
         id="parserInput"

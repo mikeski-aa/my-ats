@@ -122,4 +122,9 @@ a {
   padding-right: 6px;
   padding-top: 1px;
   padding-bottom: 1px;
+  width: 140px;
+  text-align: center;
+}
+
+.parserHolder {
 }
