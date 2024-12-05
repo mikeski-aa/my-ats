@@ -98,6 +98,9 @@ function App() {
             key={index}
             rerun={rerun}
             setRerun={setRerun}
+            apps={apps}
+            setApps={setApps}
+            devMode={devMode}
           />
         ))}
       </div>

@@ -58,6 +58,8 @@ function InputComponent({
       const shallowCopy = [...apps];
       shallowCopy.push(newApp);
       setApps(shallowCopy);
+      setNameInput("");
+      setLocationInput("");
     }
   };
 

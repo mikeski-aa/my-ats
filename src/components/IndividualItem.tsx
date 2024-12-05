@@ -7,10 +7,16 @@ function IndividualItem({
   application,
   rerun,
   setRerun,
+  apps,
+  setApps,
+  devMode,
 }: {
   application: IStagedata;
   rerun: number;
   setRerun: Dispatch<SetStateAction<number>>;
+  apps: IStagedata[];
+  setApps: Dispatch<SetStateAction<IStagedata[]>>;
+  devMode: boolean;
 }) {
   // converting dates to dd/mm/yy
   const convertDate = (input: Date | null | string): string => {
@@ -28,10 +34,19 @@ function IndividualItem({
   };
 
   const handleDeleteClick = async () => {
-    if (application.id) {
-      await deleteItem(application.id);
+    if (devMode) {
+      if (application.id) {
+        await deleteItem(application.id);
 
-      setRerun(rerun + 1);
+        setRerun(rerun + 1);
+      }
+    } else {
+      const shallowCopy: IStagedata[] = [...apps];
+      const filteredCopy = shallowCopy.filter(
+        (item) => item.companyName != application.companyName
+      );
+
+      setApps(filteredCopy);
     }
   };
 
