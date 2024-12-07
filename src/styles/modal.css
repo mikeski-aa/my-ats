@@ -1,0 +1,14 @@
+.modal {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(5px);
+}
+
+.modalContent {
+  position: relative;
+  width: 80vw;
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+}

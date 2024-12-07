@@ -9,6 +9,7 @@ import SunIcon from "../src/assets/sun.svg?react";
 import ContactDetailsHolder from "./components/ContactDetailsHolder";
 import DownloadCSV from "./components/CSVDownload";
 import CSVParser from "./components/CSVParser";
+import TutorialModal from "./components/TutorialModal";
 
 function App() {
   const [apps, setApps] = useState<IStagedata[]>([]);
@@ -91,7 +92,7 @@ function App() {
         apps={apps}
         setApps={setApps}
       />
-
+      {modal ? <TutorialModal setModal={setModal} /> : null}
       {devMode ? <ContactDetailsHolder /> : null}
       <div className="itemHeaders">
         <div className="itemHeaderInfo name">Company Name</div>
