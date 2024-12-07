@@ -74,11 +74,6 @@ function IndividualItem({
             : item
         );
 
-        console.log("hello");
-        console.log(target.value);
-
-        console.log(shallowCopy);
-
         setApps(shallowCopy);
       }
     }
