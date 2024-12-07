@@ -71,30 +71,32 @@ function InputComponent({
 
   return (
     <div className="inputDiv">
-      <div className="inputHolder">
-        <label>Company name</label>
-        <input
-          type="text"
-          minLength={1}
-          maxLength={30}
-          onKeyDown={(e) => handleKeyDown(e)}
-          value={nameInput}
-          onChange={(e) => handleNameInput(e)}
-        ></input>
-      </div>
-      <div className="inputHolder">
-        <label>Location</label>
-        <input
-          type="text"
-          minLength={1}
-          maxLength={30}
-          value={locationInput}
-          onKeyDown={(e) => handleKeyDown(e)}
-          onChange={(e) => handleLocationInput(e)}
-        ></input>
+      <div className="innerInputHolder">
+        <div className="inputHolder">
+          <label>Company name</label>
+          <input
+            type="text"
+            minLength={1}
+            maxLength={30}
+            onKeyDown={(e) => handleKeyDown(e)}
+            value={nameInput}
+            onChange={(e) => handleNameInput(e)}
+          ></input>
+        </div>
+        <div className="inputHolder">
+          <label>Location</label>
+          <input
+            type="text"
+            minLength={1}
+            maxLength={30}
+            value={locationInput}
+            onKeyDown={(e) => handleKeyDown(e)}
+            onChange={(e) => handleLocationInput(e)}
+          ></input>
+        </div>
       </div>
       <button onClick={handleAddClick} className="addButton">
-        Add
+        Add Application
       </button>
     </div>
   );

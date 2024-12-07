@@ -2,12 +2,13 @@
 .itemHeaders {
   display: flex;
   gap: 1rem;
-  width: 1100px;
+  width: 100vw;
+  justify-content: center;
 }
 
 .itemInfo,
 .itemHeaderInfo {
-  width: 150px;
+  width: 125.5px;
   overflow-x: hidden;
   text-align: center;
 }
@@ -22,5 +23,7 @@
 
 .itemHeaderInfo.name,
 .itemInfo.name {
-  width: 300px;
+  width: 125.5px;
+  overflow-x: hidden;
+  text-wrap: nowrap;
 }
