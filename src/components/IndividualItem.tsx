@@ -84,11 +84,18 @@ function IndividualItem({
     }
   };
 
+  const getDaysElapsed = () => {
+    const applyConvert = new Date(application.applyDate);
+
+    return applyConvert.toString();
+  };
+
   return (
     <div className="individualItem">
       <div className="itemInfo name">{application.companyName}</div>
       <div className="itemInfo">{convertDate(application.applyDate)}</div>
       <div className="itemInfo">{convertDate(application.endDate)}</div>
+      <div className="itemInfo">{getDaysElapsed()}</div>
       <div className="itemInfo">{application.location}</div>
       <div className="itemInfo">
         <select

@@ -16,6 +16,7 @@ function App() {
   const [theme, setTheme] = useState<string>();
 
   // devMode - dev mode means using local psql db and other functionality that doesnt work for non-local users
+  // the devmode
   const devMode = false;
 
   enum Theme {
@@ -87,6 +88,7 @@ function App() {
         <div className="itemHeaderInfo name">Company Name</div>
         <div className="itemHeaderInfo">Applied date</div>
         <div className="itemHeaderInfo">Response date</div>
+        <div className="itemHeaderInfo">Days elapsed</div>
         <div className="itemHeaderInfo">Location</div>
         <div className="itemHeaderInfo">Status</div>
         <div className="itemHeaderInfo">Remove</div>
