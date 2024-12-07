@@ -1,4 +1,5 @@
 import { useState } from "react";
+// data needs to be changed to details for upload
 import { details } from "../../details.ts";
 import "../styles/contactDetails.css";
 import DetailsInput from "./DetailsInput.tsx";

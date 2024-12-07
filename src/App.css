@@ -88,7 +88,6 @@ button:hover,
 .clickButtonUpload:hover {
   cursor: pointer;
   background-color: orangered;
-  color: var(--bg-color);
 }
 
 .iconSvg {
