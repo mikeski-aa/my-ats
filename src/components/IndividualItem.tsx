@@ -29,7 +29,7 @@ function IndividualItem({
 
       return `${day}/${month}/${year}`;
     } else {
-      return `Awaiting response`;
+      return `Waiting`;
     }
   };
 
@@ -87,7 +87,23 @@ function IndividualItem({
   const getDaysElapsed = () => {
     const applyConvert = new Date(application.applyDate);
 
-    return applyConvert.toString();
+    if (application.endDate != null) {
+      let endConvert = new Date(application.endDate);
+
+      if (convertDate(application.endDate) != "Waiting") {
+      } else {
+        endConvert = new Date();
+      }
+
+      const timedifference = endConvert.getTime() - applyConvert.getTime();
+      const millisecondsPerDay = 1000 * 60 * 60 * 24;
+      return Math.floor(timedifference / millisecondsPerDay);
+    } else {
+      const endConvert = new Date();
+      const timedifference = endConvert.getTime() - applyConvert.getTime();
+      const millisecondsPerDay = 1000 * 60 * 60 * 24;
+      return Math.floor(timedifference / millisecondsPerDay);
+    }
   };
 
   return (
