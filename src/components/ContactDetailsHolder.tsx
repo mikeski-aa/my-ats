@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { details } from "../../details.ts";
+import { details } from "../../data.ts";
 import "../styles/contactDetails.css";
 import DetailsInput from "./DetailsInput.tsx";
 import { IDetails } from "../interface.ts";
