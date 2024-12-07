@@ -114,7 +114,10 @@ button:hover,
 .buttonHolderTop {
   display: flex;
   align-items: center;
-  gap: 5rem;
+  flex-direction: column;
+  position: absolute;
+  right: 0;
+  gap: 5px;
 }
 
 a {
@@ -136,4 +139,10 @@ a {
   position: absolute;
   left: 0;
   top: 0;
+}
+
+.trueCenter {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
 }
