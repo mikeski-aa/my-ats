@@ -78,7 +78,6 @@ function App() {
       </button>
       <div className="buttonHolderTop">
         <DownloadCSV apps={apps} />
-
         <CSVParser setApps={setApps} />
       </div>
       {devMode ? null : (
@@ -93,7 +92,7 @@ function App() {
         apps={apps}
         setApps={setApps}
       />
-      <div className="trueCenter">+</div>
+
       {modal ? <TutorialModal setModal={setModal} /> : null}
       {devMode ? <ContactDetailsHolder /> : null}
       <div className="itemHeaders">
