@@ -9,7 +9,7 @@ function DownloadCSV({ apps }: { apps: IStagedata[] }) {
 
   return (
     <div className="csvDownloadHolder">
-      <CSVLink data={csvData} filename="data.csv">
+      <CSVLink data={csvData} filename="myApplications.csv">
         Download Table
       </CSVLink>
     </div>
