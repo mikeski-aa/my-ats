@@ -131,3 +131,9 @@ a {
   width: 140px;
   text-align: center;
 }
+
+.howItWorksBtn {
+  position: absolute;
+  left: 0;
+  top: 0;
+}

@@ -14,10 +14,11 @@ function App() {
   const [apps, setApps] = useState<IStagedata[]>([]);
   const [rerun, setRerun] = useState<number>(0);
   const [theme, setTheme] = useState<string>();
+  const [modal, setModal] = useState<boolean>(false);
 
   // devMode - dev mode means using local psql db and other functionality that doesnt work for non-local users
   // the devmode
-  const devMode = true;
+  const devMode = false;
 
   enum Theme {
     Light = "light",
@@ -61,6 +62,10 @@ function App() {
     }
   };
 
+  const handleModalTutorial = () => {
+    setModal(true);
+  };
+
   return (
     <div className="mainContent">
       <div className="buttonHolderTop">
@@ -74,7 +79,11 @@ function App() {
         </button>
         <CSVParser setApps={setApps} />
       </div>
-
+      {devMode ? null : (
+        <button className="howItWorksBtn" onClick={handleModalTutorial}>
+          How to use the tracker
+        </button>
+      )}
       <InputComponent
         rerun={rerun}
         setRerun={setRerun}
