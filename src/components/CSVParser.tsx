@@ -14,8 +14,6 @@ function CSVParser({
 
       Papa.parse<ICSVData>(file, {
         complete: (results) => {
-          console.log(results);
-
           const convertedData: IStagedata[] = results.data.map(
             (item: ICSVData) => ({
               ...item,
