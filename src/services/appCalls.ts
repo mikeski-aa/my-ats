@@ -7,8 +7,8 @@ const getHeaderInfo = (): HeadersInit => {
   };
 };
 
-async function getAllAppData() {
-  const url = LOCAL_URL + "allapps";
+async function getAllCodingApps() {
+  const url = LOCAL_URL + "codeapps";
   try {
     const response = await fetch(url, {
       method: "GET",
@@ -23,8 +23,49 @@ async function getAllAppData() {
   }
 }
 
+async function getAllRecApps() {
+  const url = LOCAL_URL + "recapps";
+  try {
+    const response = await fetch(url, {
+      method: "GET",
+      headers: getHeaderInfo(),
+    });
+
+    const json = await response.json();
+
+    return json;
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+// code app
 async function postNewApp(companyName: string, location: string) {
   const url = LOCAL_URL + "newApp";
+
+  const newBody = {
+    companyName: companyName,
+    location: location,
+  };
+
+  try {
+    const response = await fetch(url, {
+      method: "POST",
+      body: JSON.stringify(newBody),
+      headers: getHeaderInfo(),
+    });
+
+    const json = await response.json();
+
+    return json;
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+// rec app
+async function postNewRecApp(companyName: string, location: string) {
+  const url = LOCAL_URL + "newrecapp";
 
   const newBody = {
     companyName: companyName,
@@ -85,4 +126,11 @@ async function updateStage(id: number, stage: string, date: Date | null) {
   }
 }
 
-export { getAllAppData, postNewApp, deleteItem, updateStage };
+export {
+  getAllCodingApps,
+  postNewApp,
+  deleteItem,
+  updateStage,
+  getAllRecApps,
+  postNewRecApp,
+};
