@@ -84,9 +84,6 @@ function App() {
 
   return (
     <div className="mainContent">
-      <button className="toggleMode" onClick={handleModeToggle}>
-        Toggle mode
-      </button>
       <button className="themeSwitch" onClick={handleThemeSwitch}>
         {theme === Theme.Light ? (
           <MoonIcon className="iconSvg" />
@@ -97,6 +94,9 @@ function App() {
       <div className="buttonHolderTop">
         <DownloadCSV apps={apps} />
         <CSVParser setApps={setApps} />
+        <button className="toggleMode" onClick={handleModeToggle}>
+          {appMode ? "Frontend roles" : "Recruitment roles"}
+        </button>
       </div>
       {devMode ? null : (
         <button className="howItWorksBtn" onClick={handleModalTutorial}>
