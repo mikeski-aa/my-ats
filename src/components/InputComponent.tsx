@@ -5,7 +5,7 @@ import React, {
   useState,
 } from "react";
 import "../styles/inputComponent.css";
-import { postNewApp } from "../services/appCalls";
+import { postNewApp, postNewRecApp } from "../services/appCalls";
 import { IStagedata } from "../interface";
 
 function InputComponent({
@@ -14,12 +14,14 @@ function InputComponent({
   devMode,
   apps,
   setApps,
+  appMode,
 }: {
   rerun: number;
   setRerun: Dispatch<SetStateAction<number>>;
   devMode: boolean;
   apps: IStagedata[];
   setApps: Dispatch<SetStateAction<IStagedata[]>>;
+  appMode: boolean;
 }) {
   const [nameInput, setNameInput] = useState<string>("");
   const [locationInput, setLocationInput] = useState<string>("");
@@ -41,7 +43,11 @@ function InputComponent({
 
     // no devmode version does not use database hence we just update state
     if (devMode) {
-      await postNewApp(nameInput, locationInput);
+      if (appMode) {
+        await postNewApp(nameInput, locationInput);
+      } else {
+        await postNewRecApp(nameInput, locationInput);
+      }
       setRerun(rerun + 1);
       setNameInput("");
       setLocationInput("");

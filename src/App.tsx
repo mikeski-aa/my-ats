@@ -3,7 +3,7 @@ import "./App.css";
 import IndividualItem from "./components/IndividualItem";
 import InputComponent from "./components/InputComponent";
 import { IStagedata } from "./interface";
-import { getAllAppData } from "./services/appCalls";
+import { getAllCodingApps, getAllRecApps } from "./services/appCalls";
 import MoonIcon from "../src/assets/moon.svg?react";
 import SunIcon from "../src/assets/sun.svg?react";
 import ContactDetailsHolder from "./components/ContactDetailsHolder";
@@ -16,6 +16,8 @@ function App() {
   const [rerun, setRerun] = useState<number>(0);
   const [theme, setTheme] = useState<string>();
   const [modal, setModal] = useState<boolean>(false);
+  // true === coding, false == rec
+  const [appMode, setAppMode] = useState<boolean>(true);
 
   // devMode - dev mode means using local psql db and other functionality that doesnt work for non-local users
   // the devmode
@@ -28,11 +30,19 @@ function App() {
 
   useEffect(() => {
     if (devMode) {
-      const getData = async () => {
-        const newData: IStagedata[] = await getAllAppData();
-        setApps(newData);
-      };
-      getData();
+      if (appMode) {
+        const getData = async () => {
+          const newData: IStagedata[] = await getAllCodingApps();
+          setApps(newData);
+        };
+        getData();
+      } else {
+        const getData = async () => {
+          const newData: IStagedata[] = await getAllRecApps();
+          setApps(newData);
+        };
+        getData();
+      }
     }
   }, [rerun]);
 
@@ -67,8 +77,16 @@ function App() {
     setModal(true);
   };
 
+  const handleModeToggle = () => {
+    setAppMode(!appMode);
+    setRerun(rerun + 1);
+  };
+
   return (
     <div className="mainContent">
+      <button className="toggleMode" onClick={handleModeToggle}>
+        Toggle mode
+      </button>
       <button className="themeSwitch" onClick={handleThemeSwitch}>
         {theme === Theme.Light ? (
           <MoonIcon className="iconSvg" />
@@ -91,6 +109,7 @@ function App() {
         devMode={devMode}
         apps={apps}
         setApps={setApps}
+        appMode={appMode}
       />
 
       {modal ? <TutorialModal setModal={setModal} /> : null}
