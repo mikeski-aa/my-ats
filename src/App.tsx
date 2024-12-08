@@ -19,7 +19,7 @@ function App() {
 
   // devMode - dev mode means using local psql db and other functionality that doesnt work for non-local users
   // the devmode
-  const devMode = false;
+  const devMode = true;
 
   enum Theme {
     Light = "light",

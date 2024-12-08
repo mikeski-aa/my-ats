@@ -8,9 +8,10 @@
 .detailsHolder {
   position: absolute;
   left: 0;
-  top: 0;
+  bottom: 0;
   border-radius: 5px;
   margin-left: 5px;
+  margin-bottom: 10px;
 }
 
 .detailItem {
